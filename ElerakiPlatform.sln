@@ -1,0 +1,116 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35207.111
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eleraki.SharedKernel", "src\BuildingBlocks\Eleraki.SharedKernel\Eleraki.SharedKernel.csproj", "{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eleraki.Framework", "src\BuildingBlocks\Eleraki.Framework\Eleraki.Framework.csproj", "{B2C3D4E5-F6A7-8901-BCDE-F2345678901A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eleraki.OrganizationEngine.Domain", "src\Engines\OrganizationEngine\Domain\Eleraki.OrganizationEngine.Domain.csproj", "{C3D4E5F6-A7B8-9012-CDEF-3456789012B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eleraki.OrganizationEngine.Application", "src\Engines\OrganizationEngine\Application\Eleraki.OrganizationEngine.Application.csproj", "{D4E5F6A7-B8C9-0123-DEF0-4567890123C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eleraki.OrganizationEngine.Infrastructure", "src\Engines\OrganizationEngine\Infrastructure\Eleraki.OrganizationEngine.Infrastructure.csproj", "{E5F6A7B8-C9D0-1234-EF12-5678901234D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eleraki.OrganizationEngine.API", "src\Engines\OrganizationEngine\Api\Eleraki.OrganizationEngine.API.csproj", "{F6A7B8C9-D0E1-2345-F123-6789012345E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eleraki.Platform.Web", "src\Hosts\Eleraki.Platform.Web\Eleraki.Platform.Web.csproj", "{A7B8C9D0-E1F2-3456-7890-123456789012}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eleraki.SharedKernel.Tests", "tests\BuildingBlocks\Eleraki.SharedKernel.Tests\Eleraki.SharedKernel.Tests.csproj", "{B7C8D9E0-F1A2-4567-8901-234567890123}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eleraki.WorkflowEngine.Domain", "src\Engines\WorkflowEngine\Domain\Eleraki.WorkflowEngine.Domain\Eleraki.WorkflowEngine.Domain.csproj", "{C8D9E0F1-A2B3-4567-8901-234567890124}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eleraki.WorkflowEngine.Application", "src\Engines\WorkflowEngine\Application\Eleraki.WorkflowEngine.Application\Eleraki.WorkflowEngine.Application.csproj", "{D9E0F1A2-B3C4-5678-9012-345678901235}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eleraki.WorkflowEngine.Infrastructure", "src\Engines\WorkflowEngine\Infrastructure\Eleraki.WorkflowEngine.Infrastructure\Eleraki.WorkflowEngine.Infrastructure.csproj", "{E0F1A2B3-C4D5-6789-0123-456789012346}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eleraki.WorkflowEngine.API", "src\Engines\WorkflowEngine\Api\Eleraki.WorkflowEngine.API\Eleraki.WorkflowEngine.API.csproj", "{F1A2B3C4-D5E6-7890-1234-567890123457}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eleraki.AuthorizationEngine.Domain", "src\Engines\AuthorizationEngine\Domain\Eleraki.AuthorizationEngine.Domain\Eleraki.AuthorizationEngine.Domain.csproj", "{H3C4D5E6-F7A8-9012-BCDE-F2345678901A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eleraki.AuthorizationEngine.Application", "src\Engines\AuthorizationEngine\Application\Eleraki.AuthorizationEngine.Application\Eleraki.AuthorizationEngine.Application.csproj", "{I4D5E6F7-A8B9-0123-CDEF-4567890123B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eleraki.AuthorizationEngine.Infrastructure", "src\Engines\AuthorizationEngine\Infrastructure\Eleraki.AuthorizationEngine.Infrastructure\Eleraki.AuthorizationEngine.Infrastructure.csproj", "{J5E6F7A8-B9C0-1234-DEF0-5678901234C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eleraki.AuthorizationEngine.API", "src\Engines\AuthorizationEngine\Api\Eleraki.AuthorizationEngine.API\Eleraki.AuthorizationEngine.API.csproj", "{K6F7A8B9-C0D1-2345-F123-6789012345D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2C3D4E5-F6A7-8901-BCDE-F2345678901A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2C3D4E5-F6A7-8901-BCDE-F2345678901A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2C3D4E5-F6A7-8901-BCDE-F2345678901A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2C3D4E5-F6A7-8901-BCDE-F2345678901A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3D4E5F6-A7B8-9012-CDEF-3456789012B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3D4E5F6-A7B8-9012-CDEF-3456789012B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3D4E5F6-A7B8-9012-CDEF-3456789012B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3D4E5F6-A7B8-9012-CDEF-3456789012B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4E5F6A7-B8C9-0123-DEF0-4567890123C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4E5F6A7-B8C9-0123-DEF0-4567890123C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4E5F6A7-B8C9-0123-DEF0-4567890123C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4E5F6A7-B8C9-0123-DEF0-4567890123C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5F6A7B8-C9D0-1234-EF12-5678901234D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5F6A7B8-C9D0-1234-EF12-5678901234D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5F6A7B8-C9D0-1234-EF12-5678901234D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5F6A7B8-C9D0-1234-EF12-5678901234D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6A7B8C9-D0E1-2345-F123-6789012345E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6A7B8C9-D0E1-2345-F123-6789012345E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6A7B8C9-D0E1-2345-F123-6789012345E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6A7B8C9-D0E1-2345-F123-6789012345E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7B8C9D0-E1F2-3456-7890-123456789012}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7B8C9D0-E1F2-3456-7890-123456789012}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7B8C9D0-E1F2-3456-7890-123456789012}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7B8C9D0-E1F2-3456-7890-123456789012}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7C8D9E0-F1A2-4567-8901-234567890123}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7C8D9E0-F1A2-4567-8901-234567890123}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7C8D9E0-F1A2-4567-8901-234567890123}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7C8D9E0-F1A2-4567-8901-234567890123}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8D9E0F1-A2B3-4567-8901-234567890124}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8D9E0F1-A2B3-4567-8901-234567890124}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8D9E0F1-A2B3-4567-8901-234567890124}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8D9E0F1-A2B3-4567-8901-234567890124}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9E0F1A2-B3C4-5678-9012-345678901235}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9E0F1A2-B3C4-5678-9012-345678901235}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9E0F1A2-B3C4-5678-9012-345678901235}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9E0F1A2-B3C4-5678-9012-345678901235}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0F1A2B3-C4D5-6789-0123-456789012346}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0F1A2B3-C4D5-6789-0123-456789012346}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0F1A2B3-C4D5-6789-0123-456789012346}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0F1A2B3-C4D5-6789-0123-456789012346}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1A2B3C4-D5E6-7890-1234-567890123457}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1A2B3C4-D5E6-7890-1234-567890123457}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1A2B3C4-D5E6-7890-1234-567890123457}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1A2B3C4-D5E6-7890-1234-567890123457}.Release|Any CPU.Build.0 = Release|Any CPU
+		{G2B3C4D5-E6F7-8901-2345-678901234568}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{G2B3C4D5-E6F7-8901-2345-678901234568}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{G2B3C4D5-E6F7-8901-2345-678901234568}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{G2B3C4D5-E6F7-8901-2345-678901234568}.Release|Any CPU.Build.0 = Release|Any CPU
+		{H3C4D5E6-F7A8-9012-BCDE-F2345678901A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{H3C4D5E6-F7A8-9012-BCDE-F2345678901A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{H3C4D5E6-F7A8-9012-BCDE-F2345678901A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{H3C4D5E6-F7A8-9012-BCDE-F2345678901A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{I4D5E6F7-A8B9-0123-CDEF-4567890123B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{I4D5E6F7-A8B9-0123-CDEF-4567890123B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{I4D5E6F7-A8B9-0123-CDEF-4567890123B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{I4D5E6F7-A8B9-0123-CDEF-4567890123B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{J5E6F7A8-B9C0-1234-DEF0-5678901234C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{J5E6F7A8-B9C0-1234-DEF0-5678901234C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{J5E6F7A8-B9C0-1234-DEF0-5678901234C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{J5E6F7A8-B9C0-1234-DEF0-5678901234C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{K6F7A8B9-C0D1-2345-F123-6789012345D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{K6F7A8B9-C0D1-2345-F123-6789012345D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{K6F7A8B9-C0D1-2345-F123-6789012345D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{K6F7A8B9-C0D1-2345-F123-6789012345D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{L7G8H9I0-J1K2-3456-7890-123456789013}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{L7G8H9I0-J1K2-3456-7890-123456789013}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{L7G8H9I0-J1K2-3456-7890-123456789013}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{L7G8H9I0-J1K2-3456-7890-123456789013}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
