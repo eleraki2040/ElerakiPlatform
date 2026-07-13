@@ -51,11 +51,11 @@ public class OrganizationsController : ControllerBase
     [HttpGet("{id:guid}")]
     public async Task<IActionResult> GetOrganizationById(Guid id, CancellationToken cancellationToken)
     {
-        var result = await _mediator.Send(new GetOrganizationByIdQuery(OrganizationId.From(id)), cancellationToken);
+        var result = await _mediator.Send(new GetOrganizationByIdQuery(id), cancellationToken);
         
-        if (!result.IsSuccess)
-            return NotFound(result.Error);
+        if (result is null)
+            return NotFound();
         
-        return Ok(result.Value);
+        return Ok(result);
     }
 }

@@ -118,6 +118,20 @@ public sealed class Organization : AggregateRoot<OrganizationId>
 
         RaiseDomainEvent(new OrganizationDeactivatedDomainEvent(Id, Guid.NewGuid(), Clock.UtcNow));
     }
+
+    /// <summary>
+    /// Archives the organization.
+    /// </summary>
+    public void Archive()
+    {
+        if (Status == OrganizationStatus.Archived)
+            return;
+
+        Status = OrganizationStatus.Archived;
+        UpdatedAt = Clock.UtcNow;
+
+        RaiseDomainEvent(new OrganizationArchivedDomainEvent(Id, Guid.NewGuid(), Clock.UtcNow));
+    }
 }
 
 /// <summary>

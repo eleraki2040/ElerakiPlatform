@@ -6,9 +6,9 @@ Purpose:
 This document records the approved knowledge, decisions, philosophy, and agreements of the Eleraki Platform project.
 It serves as the permanent memory of the project and should be updated whenever a major decision is approved.
 
-============================================================
-PROJECT OVERVIEW
-============================================================
+---
+
+## PROJECT OVERVIEW
 
 Project Name:
 Eleraki Platform
@@ -33,9 +33,17 @@ The platform should later support systems such as:
 - HR
 - Hotel Management
 
-============================================================
-FOUNDING IDEA
-============================================================
+---
+
+## CURRENT PHASE
+
+Implementation Phase (Phase 7)
+
+The platform foundation is built. Engines are being implemented and tested.
+
+---
+
+## FOUNDING IDEA
 
 The project is not an ERP project.
 
@@ -45,9 +53,9 @@ ERP is simply the first implementation.
 
 The platform must outlive any individual application.
 
-============================================================
-PROJECT MOTTO
-============================================================
+---
+
+## PROJECT MOTTO
 
 "We do not develop software.
 
@@ -55,9 +63,9 @@ We understand business,
 design its models,
 then let the code reflect that understanding."
 
-============================================================
-THE FUNDAMENTAL BELIEF
-============================================================
+---
+
+## THE FUNDAMENTAL BELIEF
 
 Reality is the source of truth.
 
@@ -67,343 +75,235 @@ Business comes before technology.
 
 Technology serves business.
 
-============================================================
-HOW WE THINK
-============================================================
+---
+
+## HOW WE THINK
 
 The team never starts from:
-
 Database
-
 Screens
-
 CRUD
-
 Framework
-
 Programming Language
 
 Instead the order is:
-
 Reality
-
 ↓
-
 Business
-
 ↓
-
 Architecture
-
 ↓
-
 Technology
-
 ↓
-
 Code
 
-============================================================
-BUSINESS THINKING MODEL
-============================================================
+---
+
+## BUSINESS THINKING MODEL
 
 Everything inside the system is viewed as:
 
 Reality
-
 ↓
-
 Event
-
 ↓
-
 Rule
-
 ↓
-
 Entity
-
 ↓
-
 Document
-
 ↓
-
 State
 
 Explanation:
-
 Reality exists before software.
-
 Events change reality.
-
 Rules control events.
-
 Entities participate in events.
-
 Documents prove events happened.
-
 State represents the latest known condition.
-
-============================================================
-ENGINEERING PRINCIPLES
-============================================================
-
-Reality First
-
-Business Before Technology
-
-Architecture Before Coding
-
-Behavior Before Data
-
-Documentation Before Implementation
-
-Code Is The Result Of Understanding
-
-Simple Before Complex
-
-Maintainability Over Speed
-
-============================================================
-DOCUMENTATION PHILOSOPHY
-============================================================
-
-The project must never depend on conversation history.
-
-The project must never depend on human memory.
-
-Knowledge belongs to documentation.
-
-Every approved decision must become a document.
-
-Documentation is part of the product.
-
-============================================================
-ARCHITECTURE DECISIONS
-============================================================
-
-Current Architecture
-
-Modular Monolith
-
-Reason:
-
-Simple
-
-Maintainable
-
-Easy to test
-
-Easy to deploy
-
-Migration to Microservices will happen only when business needs justify it.
-
-============================================================
-PLATFORM STRATEGY
-============================================================
-
-Layer One
-
-Eleraki Framework
-
-Contains reusable engineering components.
-
-Layer Two
-
-Business Applications
-
-ERP
-
-Future Applications
-
-Hospital
-
-School
-
-Factory
-
-CRM
-
-HR
-
-Hotel
-
-All future applications should reuse the framework.
-
-============================================================
-PROJECT PHASES
-============================================================
-
-Phase 1
-
-Project Brain
-
-Phase 2
-
-Business Discovery
-
-Phase 3
-
-Business Language
-
-Phase 4
-
-Research
-
-Phase 5
-
-Analysis
-
-Phase 6
-
-Architecture
-
-Phase 7
-
-Design
-
-Phase 8
-
-Development
-
-============================================================
-DECISION MAKING
-============================================================
-
-Every decision must answer:
-
-What business problem does it solve?
-
-Who benefits?
-
-What business event does it represent?
-
-What rules govern it?
-
-Can it be reused?
-
-If these questions cannot be answered,
-the decision is postponed.
-
-============================================================
-QUALITY PRINCIPLES
-============================================================
-
-Readable Architecture
-
-Readable Documentation
-
-Readable Code
-
-Explicit Decisions
-
-Low Complexity
-
-High Maintainability
-
-Long-Term Thinking
-
-============================================================
-TEAM AGREEMENT
-============================================================
-
-Founder
-
-Mohamed Eleraki
-
-Role
-
-Product Owner
-
-Responsibilities
-
-Business Vision
-
-Business Decisions
-
-Final Approval
 
 ---
 
-AI Partner
+## ENGINEERING PRINCIPLES
 
-Name
+Reality First
+Business Before Technology
+Architecture Before Coding
+Documentation Before Implementation
+Behavior Before Data
+Code Is The Result Of Understanding
+Simple Before Complex
+Maintainability Over Speed
 
-Arsh
+---
 
-Role
+## DOCUMENTATION PHILOSOPHY
 
-Chief Software Architect
+The project must never depend on conversation history.
+The project must never depend on human memory.
+Knowledge belongs to documentation.
+Every approved decision must become a document.
+Documentation is part of the product.
 
-Responsibilities
+---
 
-Protect the architecture.
+## ARCHITECTURE DECISIONS
 
-Protect engineering quality.
+Current Architecture:
+Modular Monolith with Clean Architecture per Engine
 
-Protect project philosophy.
+Each Engine has:
+- Domain (Entities, Events, ValueObjects, Repository interfaces)
+- Application (Commands, Queries, Validators, DI)
+- Infrastructure (Persistence, Repositories, Configurations, DI)
+- API (Controllers, Program, Middleware)
 
-Challenge weak decisions.
+Engines communicate through public interfaces and domain events.
 
-Prevent unnecessary complexity.
+Migration to Microservices will happen only when business needs justify it.
 
-============================================================
-WORKING STYLE
-============================================================
+---
 
-No coding before understanding.
+## TECHNOLOGY STACK
 
-No feature before understanding business.
+- Language: C# 12
+- Runtime: .NET 9
+- Framework: ASP.NET Core Web API
+- Database: SQLite (dev) / SQL Server (prod)
+- ORM: Entity Framework Core
+- Validation: FluentValidation
+- Mediator: MediatR
+- API Docs: Swashbuckle / Swagger
+- Logging: Serilog
+- Testing: xUnit, FluentAssertions
 
-No technology decision before understanding business needs.
+---
 
-No unnecessary complexity.
+## APPROVED ADRs
 
-No undocumented decision.
+- ADR-001: Organization Engine Owns the Organizational Structure
+- ADR-002: Organization Unit Type is an Aggregate Root
+- ADR-003: Budget Allocation Strategy (Manual Allocation)
+- ADR-004: Documentation-First Development Approach
+- ADR-005: Platform-First Strategy
 
-============================================================
-LONG-TERM GOAL
-============================================================
+---
 
-Build one engineering platform capable of supporting multiple business systems
-without rebuilding the engineering foundation every time.
+## IMPLEMENTED ENGINES
 
-============================================================
-CURRENT STATUS
-============================================================
+- Enterprise Engine (API, Application, Domain, Infrastructure)
+- Organization Engine (API, Application, Domain, Infrastructure)
+- Identity Engine (API, Application, Domain, Infrastructure)
+- Authorization Engine (API, Application, Domain, Infrastructure)
+- Workflow Engine (API, Application, Domain, Infrastructure)
 
-Project Brain is under construction.
+---
 
-Documentation is currently the highest priority.
+## BUSINESS VOCABULARY
 
-Implementation has not started.
+The official business vocabulary is maintained in:
+- docs/business-language/ (business concepts)
+- src/Engines/Enterprise/Domain/DomainVocabulary.md (technical mapping)
 
-This is intentional.
+Key concepts:
+Enterprise, Organization, OrganizationUnit, OrganizationUnitType,
+Person, Position, Role, Permission, Document, Asset, Workflow, Transaction, Rule
 
-============================================================
-SUCCESS DEFINITION
-============================================================
+---
+
+## PLATFORM STRATEGY
+
+Layer One: Eleraki Framework (BuildingBlocks)
+Layer Two: Business Applications (ERP first)
+
+All future applications should reuse the framework.
+
+---
+
+## PROJECT PHASES
+
+Phase 1: Project Brain (Completed)
+Phase 2: Business Discovery (In Progress)
+Phase 3: Business Analysis (In Progress)
+Phase 4: Platform Architecture (Completed)
+Phase 5: Framework Design (In Progress)
+Phase 6: ERP Design (In Progress)
+Phase 7: Implementation (In Progress)
+Phase 8: Testing (Pending)
+Phase 9: First Release (Pending)
+Phase 10: Platform Expansion (Pending)
+
+---
+
+## SUCCESS DEFINITION
 
 Success is measured by:
-
 Business Accuracy
-
 Architecture Quality
-
 Maintainability
-
 Scalability
-
 Engineering Quality
 
 Not by:
-
 Number of Screens
-
 Lines of Code
-
 Number of Modules
 
-============================================================
+---
+
+## CURRENT OBJECTIVE
+
+Complete Business Discovery and Business Analysis for ERP and future domains.
+Implement remaining Foundation Engines: Notification, Audit, Configuration.
+Implement Business Engines: Inventory, Purchasing, Sales, Delivery, Finance, HR.
+Write unit and integration tests for all Engines.
+
+---
+
+## IMPORTANT DECISIONS
+
+- Modular Monolith with Clean Architecture per Engine
+- Platform-First Strategy
+- Documentation-First Development
+- Single Source of Truth for organizational data
+- Organization Unit Type as Aggregate Root
+- Manual Budget Allocation
+- Business rules documented before implementation
+
+---
+
+## TEAM AGREEMENT
+
+Founder: Mohamed Eleraki
+Role: Product Owner
+Responsibilities: Business Vision, Business Decisions, Final Approval
+
+AI Partner: Arsh
+Role: Chief Software Architect
+Responsibilities: Protect architecture, Protect engineering quality, Challenge weak decisions, Never prioritize speed over quality
+
+Working Style:
+Discussions are analytical.
+Ideas are challenged.
+Better ideas replace previous ideas.
+No attachment to old decisions.
+Every decision must serve the platform.
+
+---
+
+## WHEN STARTING A NEW CONVERSATION
+
+Read the following documents in order:
+1. README.md
+2. docs/project/PROJECT_CHARTER.md
+3. docs/project/AI_CONTEXT.md
+4. docs/project/PROJECT_MEMORY.md (this file)
+5. docs/project/CURRENT_STATE.md
+6. docs/architecture/overview.md
+
+Continue from the current task. Do not redesign approved decisions.
+
+---
+
 END OF DOCUMENT

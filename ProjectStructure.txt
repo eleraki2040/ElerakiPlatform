@@ -10,7 +10,7 @@ C:.
 │   LICENSE
 │   ProjectStructure.txt
 │   README.md
-│   📄 الملفات الرسمية الحالية.txt
+│   
 │   
 ├───.github
 │   └───workflows

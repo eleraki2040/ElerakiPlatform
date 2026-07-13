@@ -13,4 +13,10 @@ public static class Guard
         if (string.IsNullOrWhiteSpace(value))
             throw new ArgumentException($"{parameterName} cannot be null or empty.", parameterName);
     }
+
+    public static void Ensure(bool condition, string message)
+    {
+        if (!condition)
+            throw new ArgumentException(message);
+    }
 }

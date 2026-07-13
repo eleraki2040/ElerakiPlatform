@@ -1,5 +1,4 @@
 using Eleraki.WorkflowEngine.Domain;
-using FluentAssertions;
 using Xunit;
 
 namespace Eleraki.WorkflowEngine.Tests;
@@ -9,33 +8,72 @@ public class WorkflowTests
     [Fact]
     public void Create_Should_Return_Workflow_With_Active_Status()
     {
-        var workflow = Workflow.Create("Test Workflow", "Description");
+        var workflow = Workflow.Create("Onboarding", "Employee onboarding workflow");
 
-        workflow.Name.Should().Be("Test Workflow");
-        workflow.Description.Should().Be("Description");
-        workflow.Status.Should().Be(WorkflowStatus.Active);
-        workflow.Id.Should().NotBe(Guid.Empty);
-        workflow.CreatedOn.Should().BeCloseTo(DateTime.UtcNow, TimeSpan.FromSeconds(1));
+        Assert.NotNull(workflow);
+        Assert.Equal("Onboarding", workflow.Name);
+        Assert.Equal("Employee onboarding workflow", workflow.Description);
+        Assert.Equal(WorkflowStatus.Active, workflow.Status);
+        Assert.NotEqual(default, workflow.Id);
+    }
+
+    [Fact]
+    public void Create_Should_Raise_WorkflowCreatedDomainEvent()
+    {
+        var workflow = Workflow.Create("Onboarding");
+
+        Assert.Contains(workflow.DomainEvents, e => e.GetType().Name == "WorkflowCreatedDomainEvent");
     }
 
     [Fact]
     public void Activate_Should_Set_Status_To_Active()
     {
-        var workflow = Workflow.Create("Test");
-
+        var workflow = Workflow.Create("Onboarding");
         workflow.Deactivate();
+
         workflow.Activate();
 
-        workflow.Status.Should().Be(WorkflowStatus.Active);
+        Assert.Equal(WorkflowStatus.Active, workflow.Status);
+    }
+
+    [Fact]
+    public void Deactivate_Should_Set_Status_To_Inactive()
+    {
+        var workflow = Workflow.Create("Onboarding");
+
+        workflow.Deactivate();
+
+        Assert.Equal(WorkflowStatus.Inactive, workflow.Status);
     }
 
     [Fact]
     public void Complete_Should_Set_Status_To_Completed()
     {
-        var workflow = Workflow.Create("Test");
+        var workflow = Workflow.Create("Onboarding");
 
         workflow.Complete();
 
-        workflow.Status.Should().Be(WorkflowStatus.Completed);
+        Assert.Equal(WorkflowStatus.Completed, workflow.Status);
+    }
+
+    [Fact]
+    public void Cancel_Should_Set_Status_To_Cancelled()
+    {
+        var workflow = Workflow.Create("Onboarding");
+
+        workflow.Cancel();
+
+        Assert.Equal(WorkflowStatus.Cancelled, workflow.Status);
+    }
+
+    [Fact]
+    public void Update_Should_Change_Name_and_description()
+    {
+        var workflow = Workflow.Create("Onboarding", "Old description");
+
+        workflow.Update("New Onboarding", "New description");
+
+        Assert.Equal("New Onboarding", workflow.Name);
+        Assert.Equal("New description", workflow.Description);
     }
 }

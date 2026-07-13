@@ -1,4 +1,5 @@
 ﻿using Eleraki.OrganizationEngine.Application;
+using Eleraki.OrganizationEngine.Infrastructure;
 using Eleraki.Platform.Web.Infrastructure;
 using Serilog;
 
@@ -18,6 +19,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddOrganizationEngine();
+builder.Services.AddOrganizationEngineInfrastructure(builder.Configuration);
 builder.Services.AddPlatformInfrastructure();
 
 var app = builder.Build();

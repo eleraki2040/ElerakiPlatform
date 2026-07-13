@@ -1,5 +1,5 @@
-using FluentValidation;
 using Eleraki.OrganizationEngine.Application.Commands;
+using FluentValidation;
 
 namespace Eleraki.OrganizationEngine.Application.Validators;
 
@@ -14,13 +14,11 @@ public class CreateOrganizationCommandValidator : AbstractValidator<CreateOrgani
     public CreateOrganizationCommandValidator()
     {
         RuleFor(x => x.Name)
-            .NotEmpty()
-            .MaximumLength(200)
-            .WithMessage("Organization name is required and must not exceed 200 characters.");
+            .NotEmpty().WithMessage("Organization name is required.")
+            .MaximumLength(200).WithMessage("Organization name cannot exceed 200 characters.");
 
         RuleFor(x => x.Code)
-            .NotEmpty()
-            .MaximumLength(50)
-            .WithMessage("Organization code is required and must not exceed 50 characters.");
+            .NotEmpty().WithMessage("Organization code is required.")
+            .MaximumLength(50).WithMessage("Organization code cannot exceed 50 characters.");
     }
 }

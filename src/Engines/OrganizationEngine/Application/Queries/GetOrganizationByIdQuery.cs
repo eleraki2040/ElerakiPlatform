@@ -1,7 +1,7 @@
-using Eleraki.OrganizationEngine.Domain.Identity;
-using Eleraki.OrganizationEngine.Domain.Repositories;
 using Eleraki.OrganizationEngine.Application.DTOs;
-using Eleraki.SharedKernel.Primitives;
+using Eleraki.OrganizationEngine.Domain.Identity;
+using Eleraki.OrganizationEngine.Domain.Organizations;
+using Eleraki.OrganizationEngine.Domain.Repositories;
 using MediatR;
 
 namespace Eleraki.OrganizationEngine.Application.Queries;
@@ -9,13 +9,13 @@ namespace Eleraki.OrganizationEngine.Application.Queries;
 /// <summary>
 /// Query to get an organization by ID.
 /// </summary>
-/// <param name="Id">The organization identifier.</param>
-public record GetOrganizationByIdQuery(OrganizationId Id) : IRequest<Result<OrganizationDto>>;
+/// <param name="Id">The organization ID.</param>
+public record GetOrganizationByIdQuery(Guid Id) : IRequest<OrganizationDto?>;
 
 /// <summary>
 /// Handles the GetOrganizationByIdQuery.
 /// </summary>
-public class GetOrganizationByIdQueryHandler : IRequestHandler<GetOrganizationByIdQuery, Result<OrganizationDto>>
+public class GetOrganizationByIdQueryHandler : IRequestHandler<GetOrganizationByIdQuery, OrganizationDto?>
 {
     private readonly IOrganizationRepository _organizationRepository;
 
@@ -29,21 +29,22 @@ public class GetOrganizationByIdQueryHandler : IRequestHandler<GetOrganizationBy
     }
 
     /// <inheritdoc/>
-    public async Task<Result<OrganizationDto>> Handle(GetOrganizationByIdQuery request, CancellationToken cancellationToken)
+    public async Task<OrganizationDto?> Handle(GetOrganizationByIdQuery request, CancellationToken cancellationToken)
     {
-        var organization = await _organizationRepository.GetByIdAsync(request.Id, cancellationToken);
+        var organization = await _organizationRepository.GetByIdAsync(
+            OrganizationId.From(request.Id),
+            cancellationToken);
 
         if (organization is null)
-            return Result<OrganizationDto>.Failure(Error.NotFound("Organization not found."));
+            return null;
 
-        var dto = new OrganizationDto
+        return new OrganizationDto
         {
             Id = organization.Id.Value,
             Name = organization.Name.Value,
             Code = organization.Code.Value,
-            Description = organization.Description
+            Description = organization.Description,
+            Status = organization.Status.ToString()
         };
-
-        return Result<OrganizationDto>.Success(dto);
     }
 }

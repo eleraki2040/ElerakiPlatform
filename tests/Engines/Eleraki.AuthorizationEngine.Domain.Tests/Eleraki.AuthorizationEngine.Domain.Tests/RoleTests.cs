@@ -3,13 +3,10 @@ using Xunit;
 
 namespace Eleraki.AuthorizationEngine.Domain.Tests;
 
-/// <summary>
-/// Domain tests for Role aggregate.
-/// </summary>
 public class RoleTests
 {
     [Fact]
-    public void Create_Should_Return_Active_Role()
+    public void Create_Should_Return_Role_With_Active_Status()
     {
         var role = Role.Create("Admin", "Administrator role");
 
@@ -17,15 +14,23 @@ public class RoleTests
         Assert.Equal("Admin", role.Name);
         Assert.Equal("Administrator role", role.Description);
         Assert.True(role.IsActive);
-        Assert.NotEqual(default, role.CreatedOn);
+        Assert.NotEqual(default, role.Id);
+    }
+
+    [Fact]
+    public void Create_Should_Raise_RoleCreatedDomainEvent()
+    {
+        var role = Role.Create("Admin");
+
+        Assert.Contains(role.DomainEvents, e => e.GetType().Name == "RoleCreatedDomainEvent");
     }
 
     [Fact]
     public void Activate_Should_Set_IsActive_To_True()
     {
         var role = Role.Create("Admin");
-
         role.Deactivate();
+
         role.Activate();
 
         Assert.True(role.IsActive);
@@ -42,13 +47,13 @@ public class RoleTests
     }
 
     [Fact]
-    public void Update_Should_Change_Name_And_Description()
+    public void Update_Should_Change_Name_and_description()
     {
-        var role = Role.Create("Admin", "Administrator role");
+        var role = Role.Create("Admin", "Old description");
 
-        role.Update("SuperAdmin", "Super administrator role");
+        role.Update("SuperAdmin", "New description");
 
         Assert.Equal("SuperAdmin", role.Name);
-        Assert.Equal("Super administrator role", role.Description);
+        Assert.Equal("New description", role.Description);
     }
 }

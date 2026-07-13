@@ -138,41 +138,97 @@ Business reality is.
 
 ---
 
-## ARCHITECTURE DECISION
+## CURRENT PROJECT STATE
 
-Current Architecture:
+Phase: Implementation Phase (Phase 7)
 
-Modular Monolith
-
-Reason:
-
-Simple
-
-Maintainable
-
-Easy to evolve
-
-Migration to Microservices will happen ONLY when required.
+Current Objective:
+Implement Engines and Business Engines based on approved architecture.
 
 ---
 
-## PLATFORM STRATEGY
+## ACTUAL SOLUTION STRUCTURE
 
-Layer 1
+```
+src/
+  BuildingBlocks/
+    Eleraki.Framework/          # Core framework (Guard, Clock, Result)
+    Eleraki.SharedKernel/       # DDD base (Entity, AggregateRoot, ValueObject, DomainEvent)
+  Engines/
+    Enterprise/                 # Enterprise aggregate root
+    OrganizationEngine/         # Organization hierarchy
+    IdentityEngine/             # Users, authentication
+    AuthorizationEngine/        # Roles, permissions
+    WorkflowEngine/             # Workflow definitions and execution
+    (future: Notification, Audit, Inventory, Purchasing, Sales, Delivery, Finance, HR)
+  Hosts/
+    Eleraki.Platform.Web/       # Main ASP.NET Core host
+tests/
+```
 
-Framework
+Each Engine follows Clean Architecture:
+- Api/       (Controllers, Program)
+- Application/ (Commands, Queries, Validators, DI)
+- Domain/    (Entities, Events, ValueObjects, Repositories interfaces)
+- Infrastructure/ (Persistence, Repositories, Configurations, DI)
 
-Reusable engineering foundation.
+---
 
-Layer 2
+## TECHNOLOGY STACK
 
-Applications
+- Language: C# 12
+- Runtime: .NET 9
+- Web: ASP.NET Core Web API
+- Database: SQLite (dev) / SQL Server (prod)
+- ORM: Entity Framework Core
+- Validation: FluentValidation
+- Mediator: MediatR
+- API Docs: Swashbuckle / Swagger
+- Logging: Serilog
+- Testing: xUnit, FluentAssertions
 
-ERP
+---
 
-Future systems
+## IMPLEMENTED ENGINES
 
-All applications should reuse the framework.
+| Engine | Status | Key Entities |
+|--------|--------|-------------|
+| Enterprise | Implemented | Enterprise |
+| Organization | Implemented | Organization, OrganizationUnit, OrganizationUnitType |
+| Identity | Implemented | User, UserName, UserPassword, UserRole |
+| Authorization | Implemented | Role, Permission, PermissionType |
+| Workflow | Implemented | Workflow, WorkflowStatus |
+
+---
+
+## BUSINESS VOCABULARY (Domain Model)
+
+The official vocabulary is in: `src/Engines/Enterprise/Domain/DomainVocabulary.md`
+
+Key concepts:
+- Enterprise: The root entity representing the tenant
+- Organization: The organizational entity within an Enterprise
+- OrganizationUnit: Structural nodes (Branch, Department, Warehouse, etc.)
+- OrganizationUnitType: Classifies Organization Units (configurable)
+- Person: Any person within the Enterprise
+- Position: Job position within an Organization Unit
+- Role: System role for authorization
+- Permission: Single authorization permission
+- Document: Business document produced or consumed
+- Asset: Resource owned by the Enterprise
+- Workflow: Sequence of steps achieving a business goal
+
+---
+
+## ARCHITECTURE DECISIONS
+
+Current Architecture:
+Modular Monolith / Clean Architecture per Engine
+
+Reason:
+Each Engine is a self-contained module with internal Clean Architecture layers.
+Engines communicate through public interfaces and domain events.
+Future migration to microservices is straightforward because each Engine is independently deployable.
 
 ---
 
@@ -184,48 +240,36 @@ Knowledge belongs to documentation.
 
 Every approved decision must become a document.
 
+Documentation location:
+- Project docs: docs/project/
+- Architecture docs: docs/architecture/
+- Business docs: docs/business/
+- Business Language: docs/business-language/
+- ADRs: docs/architecture/decisions/
+
 ---
 
 ## TEAM
 
 Founder
-
 Mohamed Eleraki
-
 Role:
-
 Product Owner
-
 Responsibilities:
-
 Business Vision
-
 Business Decisions
-
 Final Approval
 
----
-
 AI Partner
-
 Name:
-
 Arsh
-
 Role:
-
 Chief Software Architect
-
 Responsibilities:
-
 Protect architecture.
-
 Protect engineering quality.
-
 Challenge weak decisions.
-
 Never prioritize speed over quality.
-
 Never allow code before understanding.
 
 ---
@@ -233,24 +277,31 @@ Never allow code before understanding.
 ## WORKING STYLE
 
 Discussions are analytical.
-
 Ideas are challenged.
-
 Better ideas replace previous ideas.
-
 No attachment to old decisions.
-
 Every decision must serve the platform.
 
 ---
 
 ## CURRENT PROJECT PHASE
 
-Project Brain Construction
+Implementation Phase
 
 Current Objective
+Implement Engines and write tests.
 
-Build the engineering knowledge before writing code.
+---
+
+## WHEN STARTING A NEW CONVERSATION
+
+1. Read README.md
+2. Read docs/project/PROJECT_CHARTER.md
+3. Read docs/project/AI_CONTEXT.md (this file)
+4. Read docs/project/CURRENT_STATE.md
+5. Read docs/architecture/overview.md
+
+Continue from the current task. Do not redesign approved decisions.
 
 ---
 

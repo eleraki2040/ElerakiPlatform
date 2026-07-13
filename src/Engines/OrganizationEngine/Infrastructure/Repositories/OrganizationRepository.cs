@@ -1,6 +1,7 @@
 using Eleraki.OrganizationEngine.Domain.Organizations;
 using Eleraki.OrganizationEngine.Domain.Identity;
 using Eleraki.OrganizationEngine.Domain.Repositories;
+using Eleraki.OrganizationEngine.Domain.ValueObjects;
 using Eleraki.OrganizationEngine.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
@@ -58,12 +59,12 @@ public class OrganizationRepository : IOrganizationRepository
     /// <inheritdoc/>
     public async Task<bool> ExistsByCodeAsync(string code, CancellationToken cancellationToken = default)
     {
-        return await _context.Organizations.AnyAsync(o => o.Code.Value == code, cancellationToken);
+        return await _context.Organizations.AnyAsync(o => o.Code == OrganizationCode.Create(code), cancellationToken);
     }
 
     /// <inheritdoc/>
     public async Task<Organization?> GetByCodeAsync(string code, CancellationToken cancellationToken = default)
     {
-        return await _context.Organizations.FirstOrDefaultAsync(o => o.Code.Value == code, cancellationToken);
+        return await _context.Organizations.FirstOrDefaultAsync(o => o.Code == OrganizationCode.Create(code), cancellationToken);
     }
 }

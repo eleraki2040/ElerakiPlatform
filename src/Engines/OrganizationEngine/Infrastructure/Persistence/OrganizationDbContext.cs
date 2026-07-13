@@ -1,4 +1,7 @@
+using Eleraki.OrganizationEngine.Domain.Identity;
 using Eleraki.OrganizationEngine.Domain.Organizations;
+using Eleraki.OrganizationEngine.Domain.OrganizationUnits;
+using Eleraki.OrganizationEngine.Domain.OrganizationUnitTypes;
 using Microsoft.EntityFrameworkCore;
 
 namespace Eleraki.OrganizationEngine.Infrastructure.Persistence;
@@ -21,6 +24,16 @@ public class OrganizationDbContext : DbContext
     /// Gets the Organizations DbSet.
     /// </summary>
     public DbSet<Organization> Organizations => Set<Organization>();
+
+    /// <summary>
+    /// Gets the OrganizationUnits DbSet.
+    /// </summary>
+    public DbSet<OrganizationUnit> OrganizationUnits => Set<OrganizationUnit>();
+
+    /// <summary>
+    /// Gets the OrganizationUnitTypes DbSet.
+    /// </summary>
+    public DbSet<OrganizationUnitType> OrganizationUnitTypes => Set<OrganizationUnitType>();
 
     /// <inheritdoc/>
     protected override void OnModelCreating(ModelBuilder modelBuilder)

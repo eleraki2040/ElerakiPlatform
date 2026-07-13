@@ -1,6 +1,9 @@
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using Eleraki.Enterprise.Application.Commands;
+using Eleraki.Enterprise.Application.Parties.Commands;
+using Eleraki.Enterprise.Application.Validators;
 
 namespace Eleraki.Enterprise.Application;
 
@@ -14,7 +17,7 @@ public static class DependencyInjection
             cfg.RegisterServicesFromAssembly(typeof(CreatePartyCommand).Assembly);
         });
 
-        services.AddValidatorsFromAssembly(typeof(CreateEnterpriseCommand).Assembly);
+        services.AddValidatorsFromAssemblyContaining<CreateEnterpriseCommandValidator>();
 
         services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 

@@ -13,6 +13,15 @@ build/
 *.jar
 *.war
 *.ear
+*.vs/
+*.vscode/settings.json
+
+# TestResults/
+*.user
+*.suo
+*.cache
+*.db
+*.log
 
 # Dependencies
 node_modules/
@@ -60,3 +69,4 @@ Thumbs.db
 docs/**/*.md~
 *.bak
 *.backup
+
