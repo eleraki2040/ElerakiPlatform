@@ -139,13 +139,15 @@ Implementation of Foundation Engines and Business Engines is underway.
 - Authorization — Roles, permissions
 - Workflow — Workflow definitions and execution
 
-### Business Engines (Planned)
-- Inventory
-- Purchasing
-- Sales
-- Delivery
-- Finance
-- HR
+### Business Engines
+- Inventory — Warehouse management, stock movements
+- Purchasing — Vendors, purchase orders
+- Sales — Customers, sales orders
+- Delivery — Tracking, driver assignment, delivery execution
+- Finance — Accounts, financial transactions
+- HR — Departments, employees
+- School Management — Students, teachers, classes, courses
+- Hospital — Patients, appointments, admissions, invoices
 
 ### Integration Engines (Planned)
 - Notification
@@ -156,18 +158,49 @@ Implementation of Foundation Engines and Business Engines is underway.
 
 ---
 
-## Current Phase
+## Current Status
 
-Implementation Phase
+**Implementation Phase**
 
-The team is implementing Foundation Engines and Business Engines based on approved architecture.
+Foundation Engines and Business Engines are implemented with tests.
+Current test status: **266+ tests passing** across Domain, Application, Infrastructure, and Integration test projects.
 
 ---
 
-## Documentation
+## Project Structure
 
-Project documentation starts here:
-
+```
+ElerakiPlatform/
+  docs/
+    architecture/        # Architecture docs, ADRs, diagrams
+    project/             # Project identity, principles, roadmap
+    business/            # Business discovery and analysis
+    business-language/   # Official business vocabulary
+    development/         # Coding standards, testing, release
+  src/
+    BuildingBlocks/
+      Eleraki.Framework/        # Core primitives (Guard, Clock, Result, Error)
+      Eleraki.SharedKernel/     # DDD base classes (Entity, AggregateRoot, ValueObject)
+    Engines/
+      Enterprise/               # Enterprise aggregate root
+      OrganizationEngine/       # Organization hierarchy
+      IdentityEngine/           # Users and authentication
+      AuthorizationEngine/      # Roles and permissions
+      WorkflowEngine/           # Workflow orchestration
+      SalesEngine/              # Sales orders, customers
+      DeliveryEngine/           # Deliveries, drivers, vehicles
+      PurchasingEngine/         # Purchase orders, vendors
+      InventoryEngine/          # Warehouses, stock movements
+      FinanceEngine/            # Accounts, financial operations
+      HREngine/                 # Departments, employees
+      SchoolManagementEngine/   # Students, teachers, classes, courses
+      HospitalEngine/           # Patients, appointments, admissions
+    Hosts/
+      Eleraki.Platform.Web/     # Main web host
+  samples/               # Sample applications (ERP, CRM, Hospital, School, Factory)
+  packages/              # NuGet packages
+  scripts/               # Build and deployment scripts
+  tests/                 # Test projects
 ```
 docs/project/           # Project identity, principles, roadmap
 docs/architecture/      # Architecture, ADRs, diagrams
